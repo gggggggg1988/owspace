@@ -116,23 +116,23 @@ public class LeftMenuFragment extends Fragment {
     }
 
     private void startColumnAnim() {
-        TranslateAnimation localTranslateAnimation = new TranslateAnimation(0F, 0.0F, 0.0F, 0.0F);
-        localTranslateAnimation.setDuration(700L);
+        TranslateAnimation localTranslateAnimation = null;
         for (int j=0;j<mViewList.size();j++){
             View localView = this.mViewList.get(j);
-            localView.startAnimation(localTranslateAnimation);
             localTranslateAnimation = new TranslateAnimation(j * -35,0.0F, 0.0F, 0.0F);
+            localTranslateAnimation.setInterpolator(new BounceInterpolator());
             localTranslateAnimation.setDuration(700L);
+            localView.startAnimation(localTranslateAnimation);
         }
     }
 
     private void startIconAnim(View paramView) {
         ScaleAnimation localScaleAnimation = new ScaleAnimation(0.1F, 1.0F, 0.1F, 1.0F, paramView.getWidth() / 2, paramView.getHeight() / 2);
+        localScaleAnimation.setInterpolator(new BounceInterpolator());
         localScaleAnimation.setDuration(1000L);
         paramView.startAnimation(localScaleAnimation);
-        float f1 = paramView.getWidth() / 2;
-        float f2 = paramView.getHeight() / 2;
-        localScaleAnimation = new ScaleAnimation(1.0F, 0.5F, 1.0F, 0.5F, f1, f2);
-        localScaleAnimation.setInterpolator(new BounceInterpolator());
+//        float f1 = paramView.getWidth() / 2;
+//        float f2 = paramView.getHeight() / 2;
+//        localScaleAnimation = new ScaleAnimation(1.0F, 0.5F, 1.0F, 0.5F, f1, f2);
     }
 }
