@@ -78,6 +78,20 @@ public class LeftMenuFragment extends Fragment {
         switch (view.getId()) {
             case R.id.right_slide_close:
                 RxBus.getInstance().postEvent(new Event(1000,"closeMenu"));
+
+                new Thread(){
+                    @Override
+                    public void run() {
+                        super.run();
+                        try {
+                            Thread.sleep(10000);
+                            RxBus.getInstance().postEvent(new Event(0l,"test"));
+
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }.start();
                 break;
             case R.id.search:
                 break;

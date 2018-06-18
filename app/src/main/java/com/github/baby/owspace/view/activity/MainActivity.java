@@ -1,6 +1,7 @@
 package com.github.baby.owspace.view.activity;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,6 +63,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        Logger.i("path test --"+ Environment.getExternalStorageDirectory().getAbsolutePath());
         initMenu();
         initPage();
         deviceId = AppUtil.getDeviceId(this);
@@ -91,9 +93,12 @@ public class MainActivity extends BaseActivity implements MainContract.View {
                 .subscribe(new Action1<Event>() {
                     @Override
                     public void call(Event event) {
+                        Logger.i("event name---"+event.getName());
                         slidingMenu.showContent();
                     }
                 });
+
+
     }
 
     private void initPage() {

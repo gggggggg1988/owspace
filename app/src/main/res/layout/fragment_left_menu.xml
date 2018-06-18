@@ -9,8 +9,8 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/right_slide_close"
-            android:layout_width="?actionBarSize"
-            android:layout_height="?actionBarSize"
+            android:layout_width="?android:attr/actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
             android:scaleType="center"
             android:layout_alignParentLeft="true"
             android:clickable="true"
